@@ -9,3 +9,13 @@
 <li><%= item.quantity %> &times; <%= item.product.title %></li>
 <% end %>
 </ul>
+
+<%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %><!-- will create:
+<form action="/carts/1" class="button_to" method="post">
+<div>
+<input name="_method" type="hidden" value="delete"/>
+<input data-confirm="Are you sure?" type="submit" value="Empty cart"/>
+<input name="authenticity_token" type="hidden" value="RKlYfdEg4jmtxsQ72St5Na8AsY4AL7K+JeIZoj0vSV0="/>
+</div>
+</form>
+-->
