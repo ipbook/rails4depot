@@ -1,4 +1,9 @@
 $('#cart').html("<%= escape_javascript render(@cart) %>");
 
+if( $('#cart tr').length>0 ){ 
+//$('#cart').show('bind', 1000);
+$('#cart').css('display','block');
+}
+
 $('#current_item').css({'background-color':'#f8f'})
   .animate({'background-color':'#141'}, 1000);
