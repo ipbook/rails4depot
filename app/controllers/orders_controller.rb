@@ -31,11 +31,17 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
+    @order = Order.new(order_params) #init @order object from form_params
+    @order.add_line_items_from_cart(@cart) #add_line_items_from_cart is created method by ourself 
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        Cart.destroy(session[:cart_id]) # (1) call model-method for delete db-row-data with session[:cart_id]. (2) i think cart metaData save into db, not all metaData save into session(only cart_id in session).
+        session[:cart_id] = nil # remove session data
+        
+        format.html { redirect_to @order, notice: #'Order was successfully created.' }
+          'Thank you for your order.'
+          }
         format.json { render action: 'show', status: :created, location: @order }
       else
         format.html { render action: 'new' }
