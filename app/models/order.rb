@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
   has_many :line_items, dependent: :destroy
   NAME_SIZE = 41
-  PAYMENT_TYPES = [ "Check", "Credit card", "Purchase order" ]
+  PAYMENT_TYPES = [ "Check", "Credit card", "Purchase order" ] #? how about a value-txt
   
   validates :name, :address, :email, presence: true
   validates :pay_type, inclusion: PAYMENT_TYPES

@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
         Cart.destroy(session[:cart_id]) # (1) call model-method for delete db-row-data with session[:cart_id]. (2) i think cart metaData save into db, not all metaData save into session(only cart_id in session).
         session[:cart_id] = nil # remove session data
         
-        format.html { redirect_to @order, notice: #'Order was successfully created.' }
+        format.html { redirect_to store_url, notice: #'Order was successfully created.' }
           'Thank you for your order.'
           }
         format.json { render action: 'show', status: :created, location: @order }
