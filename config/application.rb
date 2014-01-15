@@ -8,6 +8,7 @@ Bundler.require(:default, Rails.env)
 
 module Depot
   class Application < Rails::Application
+    GLOBAL_CONST_VALUE = 1
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -21,3 +22,5 @@ module Depot
     # config.i18n.default_locale = :de
   end
 end
+
+#config.autoload_paths += %W( #{Rails.root} /lib) #page265

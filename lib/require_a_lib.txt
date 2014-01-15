@@ -1,0 +1,5 @@
+if our Easter calculation library is in the file  lib/easter.rb , we can include it in any model, view, or con -troller using this:
+
+require "easter"
+or
+require "subfolder/easter"
